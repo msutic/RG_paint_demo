@@ -9,17 +9,17 @@
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" Text="Paint demo" FontFamily="Arial" FontSize="30"/>
         <Menu DockPanel.Dock="Top">
-            <MenuItem FontFamily="Arial" ToolTip="Add Ellipse" FontSize="20" Header="_Ellipse">
+            <MenuItem Name="EllipseButton" FontFamily="Arial" ToolTip="Add Ellipse" FontSize="20" Header="_Ellipse" Click="EllipseButton_Click">
             </MenuItem>
-            <MenuItem FontFamily="Arial" ToolTip="Add Rectangle" FontSize="20" Header="_Rectangle">
+            <MenuItem Name="RectangleButton" FontFamily="Arial" ToolTip="Add Rectangle" FontSize="20" Header="_Rectangle">
             </MenuItem>
-            <MenuItem FontFamily="Arial" ToolTip="Add Polygon" FontSize="20" Header="_Polygon">
+            <MenuItem Name="PolygonButton" FontFamily="Arial" ToolTip="Add Polygon" FontSize="20" Header="_Polygon">
             </MenuItem>
-            <MenuItem FontFamily="Arial" ToolTip="Add Image" FontSize="20" Header="_Image">
+            <MenuItem Name="ImageButton" FontFamily="Arial" ToolTip="Add Image" FontSize="20" Header="_Image">
             </MenuItem>
-            <MenuItem FontFamily="Arial" ToolTip="Undo last action" FontSize="20" Header="_Undo">
+            <MenuItem Name="UndoButton" FontFamily="Arial" ToolTip="Undo last action" FontSize="20" Header="_Undo">
             </MenuItem>
-            <MenuItem FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo">
+            <MenuItem Name="RedoButton" FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo">
             </MenuItem>
         </Menu>
         <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">

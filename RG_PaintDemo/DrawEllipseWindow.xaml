@@ -1,0 +1,43 @@
+﻿<Window x:Class="RG_PaintDemo.DrawEllipse"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RG_PaintDemo"
+        xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="DrawEllipse" Height="320" Width="350">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="74*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="width:" Margin="0,10,5,10" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="22" Width="52"></TextBlock>
+        <wpfx:IntegerUpDown Name="widthIn" Increment="5" FontSize="20" DisplayDefaultValueOnEmptyText="True" FontFamily="Arial" DefaultValue="50" Grid.Column="1"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="height:" Margin="0,9,5,9" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="23" Width="60"></TextBlock>
+        <wpfx:IntegerUpDown Name="heightIn" Increment="5" DefaultValue="50" FontFamily="Arial" FontSize="20" DisplayDefaultValueOnEmptyText="True" Grid.Row="1" Grid.Column="1"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="fill color:" Margin="0,9,5,9" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="24" Width="73"></TextBlock>
+        <wpfx:ColorPicker Name="fillColorIn" Grid.Column="1" Grid.Row="2"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="border color:" Margin="0,9,5,9" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="23" Width="112"></TextBlock>
+        <wpfx:ColorPicker Name="borderColorIn" Grid.Column="1" Grid.Row="3"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="border thickness:" Margin="0,10,5,10" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="22" Width="152"></TextBlock>
+        <wpfx:IntegerUpDown Name="borderThicknessIn" DefaultValue="0" FontFamily="Arial" FontSize="20" DisplayDefaultValueOnEmptyText="True" Grid.Row="4" Grid.Column="1"/>
+
+        <Button x:Name="cancelButton" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Cancel" Background="Gray" Grid.Row="5" Grid.Column="0"/>
+        <Button x:Name="drawButton" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Draw" Background="Gray" Grid.Row="5" Grid.Column="1"/>
+
+    </Grid>
+</Window>
