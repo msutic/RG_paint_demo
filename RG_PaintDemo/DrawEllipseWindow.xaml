@@ -7,7 +7,7 @@
         xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="DrawEllipse" Height="320" Width="350">
-    <Grid Margin="10">
+    <Grid Margin="20,36,20,20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="87*"/>
             <ColumnDefinition Width="74*"/>
@@ -36,8 +36,8 @@
         <TextBlock Grid.Column="0" Grid.Row="4" Text="border thickness:" Margin="0,10,5,10" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="22" Width="152"></TextBlock>
         <wpfx:IntegerUpDown Name="borderThicknessIn" DefaultValue="0" FontFamily="Arial" FontSize="20" DisplayDefaultValueOnEmptyText="True" Grid.Row="4" Grid.Column="1"/>
 
-        <Button x:Name="cancelButton" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Cancel" Background="Gray" Grid.Row="5" Grid.Column="0"/>
-        <Button x:Name="drawButton" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Draw" Background="Gray" Grid.Row="5" Grid.Column="1"/>
+        <Button x:Name="cancelButton" Cursor="Hand" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Cancel" Background="Gray" Grid.Row="5" Grid.Column="0" Click="CancelButton_Click"/>
+        <Button x:Name="drawButton" Cursor="Hand" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Draw" Background="Gray" Grid.Row="5" Grid.Column="1" Click="DrawButton_Click"/>
 
     </Grid>
 </Window>
