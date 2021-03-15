@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RG_PaintDemo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="RG-PSI-PZ1 - Marko Sutic" Height="450" Width="800">
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" Text="Paint demo" FontFamily="Arial" FontSize="30"/>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem FontFamily="Arial" ToolTip="Add Ellipse" FontSize="20" Header="_Ellipse">
+            </MenuItem>
+            <MenuItem FontFamily="Arial" ToolTip="Add Rectangle" FontSize="20" Header="_Rectangle">
+            </MenuItem>
+            <MenuItem FontFamily="Arial" ToolTip="Add Polygon" FontSize="20" Header="_Polygon">
+            </MenuItem>
+            <MenuItem FontFamily="Arial" ToolTip="Add Image" FontSize="20" Header="_Image">
+            </MenuItem>
+            <MenuItem FontFamily="Arial" ToolTip="Undo last action" FontSize="20" Header="_Undo">
+            </MenuItem>
+            <MenuItem FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo">
+            </MenuItem>
+        </Menu>
+        <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        </Grid>
+    </DockPanel>
+    
 </Window>
