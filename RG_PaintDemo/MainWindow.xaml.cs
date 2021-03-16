@@ -30,6 +30,11 @@ namespace RG_PaintDemo
             DrawEllipse ellipseWindow = new DrawEllipse();
             ellipseWindow.Show();
         }
-    
+
+        private void RectangleButton_Click(object sender, RoutedEventArgs e)
+        {
+            DrawRectangleWindow drawRectangleWindow = new DrawRectangleWindow();
+            drawRectangleWindow.Show();
+        }
     }
 }

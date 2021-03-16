@@ -19,6 +19,9 @@ namespace RG_PaintDemo
     /// </summary>
     public partial class DrawEllipse : Window
     {
+        private Ellipse ellipseShape = new Ellipse();
+
+
         public DrawEllipse()
         {
             InitializeComponent();

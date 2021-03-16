@@ -5,25 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RG_PaintDemo"
         mc:Ignorable="d"
-        Title="RG-PSI-PZ1 - Marko Sutic" Height="450" Width="800">
-    <DockPanel>
-        <TextBlock DockPanel.Dock="Top" Text="Paint demo" FontFamily="Arial" FontSize="30"/>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Name="EllipseButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Ellipse" FontSize="20" Header="_Ellipse" Click="EllipseButton_Click">
-            </MenuItem>
-            <MenuItem Name="RectangleButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Rectangle" FontSize="20" Header="_Rectangle">
-            </MenuItem>
-            <MenuItem Name="PolygonButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Polygon" FontSize="20" Header="_Polygon">
-            </MenuItem>
-            <MenuItem Name="ImageButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Image" FontSize="20" Header="_Image">
-            </MenuItem>
-            <MenuItem Name="UndoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Undo last action" FontSize="20" Header="_Undo">
-            </MenuItem>
-            <MenuItem Name="RedoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo">
-            </MenuItem>
-        </Menu>
-        <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        </Grid>
-    </DockPanel>
-    
+        Title="RG-PSI-PZ1 - Marko Sutic" Height="600" Width="800">
+    <Grid>
+        <DockPanel Background="BlanchedAlmond">
+            <TextBlock Margin="10,30,10,10" HorizontalAlignment="Center" DockPanel.Dock="Top" Text="Paint demo" FontFamily="Arial" FontSize="30" Height="37"/>
+            <Menu Background="Black" Foreground="WhiteSmoke" DockPanel.Dock="Top">
+                <MenuItem Name="EllipseButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Ellipse" FontSize="20" Header="_Ellipse" Click="EllipseButton_Click">
+                </MenuItem>
+                <MenuItem Name="RectangleButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Rectangle" FontSize="20" Header="_Rectangle" Click="RectangleButton_Click">
+                </MenuItem>
+                <MenuItem Name="PolygonButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Polygon" FontSize="20" Header="_Polygon">
+                </MenuItem>
+                <MenuItem Name="ImageButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Image" FontSize="20" Header="_Image">
+                </MenuItem>
+                <MenuItem Name="UndoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Undo last action" FontSize="20" Header="_Undo">
+                </MenuItem>
+                <MenuItem Name="RedoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo">
+                </MenuItem>
+            </Menu>
+            <Canvas x:Name="PaintingCanvas" Grid.Row="1" Background="WhiteSmoke">
+            </Canvas>
+        </DockPanel>
+    </Grid>
 </Window>
