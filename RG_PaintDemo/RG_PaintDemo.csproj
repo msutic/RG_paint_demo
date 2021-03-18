@@ -86,7 +86,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="demo\drawing_tools\EllipseDrawer.cs" />
     <Compile Include="DrawEllipseWindow.xaml.cs">
       <DependentUpon>DrawEllipseWindow.xaml</DependentUpon>
     </Compile>

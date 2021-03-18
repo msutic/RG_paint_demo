@@ -49,7 +49,15 @@ namespace RG_PaintDemo
             else if(setter == 2)
             {
                 DrawRectangleWindow drawRectangleWindow = new DrawRectangleWindow();
-                drawRectangleWindow.Show();
+                drawRectangleWindow.ShowDialog();
+
+                var rectangle = drawRectangleWindow.rectangleObject;
+                if (rectangle != null)
+                {
+                    rectangle.SetValue(Canvas.LeftProperty, x_coord);
+                    rectangle.SetValue(Canvas.TopProperty, y_coord);
+                    PaintingCanvas.Children.Add(rectangle);
+                }
             }
         }
 

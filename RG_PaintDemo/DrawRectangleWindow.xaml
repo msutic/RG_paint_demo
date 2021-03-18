@@ -37,7 +37,7 @@
         <wpfx:IntegerUpDown Name="borderThicknessIn" DefaultValue="0" FontFamily="Arial" FontSize="20" DisplayDefaultValueOnEmptyText="True" Grid.Row="4" Grid.Column="1"/>
 
         <Button x:Name="cancelButton" Cursor="Hand" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Cancel" Background="Gray" Grid.Row="5" Grid.Column="0" Click="CancelButton_Click"/>
-        <Button x:Name="drawButton" Cursor="Hand" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Draw" Background="Gray" Grid.Row="5" Grid.Column="1"/>
+        <Button x:Name="drawButton" Cursor="Hand" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Draw" Background="Gray" Grid.Row="5" Grid.Column="1" Click="DrawButton_Click"/>
 
     </Grid>
 </Window>
