@@ -21,6 +21,7 @@ namespace RG_PaintDemo
     public partial class MainWindow : Window
     {
         public static Point MousePosition { get; }
+        private PointCollection points = new PointCollection();
         public int setter { get; set; }
 
         public MainWindow()
@@ -28,10 +29,28 @@ namespace RG_PaintDemo
             InitializeComponent();
         }
 
+        private void CanvasLeftMouse_Click(object sender, MouseButtonEventArgs e)
+        {
+            if(setter == 3)
+            {
+                DrawPolygonWindow drawPolygonWindow = new DrawPolygonWindow(new PointCollection(points));
+                drawPolygonWindow.ShowDialog();
+
+                var polygon = drawPolygonWindow.polygonObject;
+                if(polygon != null)
+                {
+                    PaintingCanvas.Children.Add(polygon);
+                }
+
+                points.Clear();
+            }
+        }
+
         private void OnCanvasMouseRightClick(object sender, MouseButtonEventArgs e)
         {
-            double x_coord = e.GetPosition(PaintingCanvas).X;
-            double y_coord = e.GetPosition(PaintingCanvas).Y;
+            var position = e.GetPosition(PaintingCanvas);
+            double x_coord = position.X;
+            double y_coord = position.Y;
             // TODO - handle mouse right click
             if(setter == 1)
             {
@@ -58,6 +77,10 @@ namespace RG_PaintDemo
                     rectangle.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(rectangle);
                 }
+            }
+            else if(setter == 3)
+            {
+                points.Add(position);
             }
         }
 
@@ -115,6 +138,38 @@ namespace RG_PaintDemo
             ClearButton.BorderBrush = null;
             ClearButton.Background = Brushes.Black;
 
+        }
+
+        private void UndoButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PolygonButton_Click(object sender, RoutedEventArgs e)
+        {
+            setter = 3;
+            PolygonButton.BorderBrush = Brushes.Blue;
+            PolygonButton.Background = Brushes.LightGray;
+            PolygonButton.BorderThickness = new Thickness(2);
+
+            // reset other buttons
+            EllipseButton.BorderBrush = null;
+            EllipseButton.Background = Brushes.Black;
+
+            RectangleButton.BorderBrush = null;
+            RectangleButton.Background = Brushes.Black;
+
+            ImageButton.BorderBrush = null;
+            ImageButton.Background = Brushes.Black;
+
+            UndoButton.BorderBrush = null;
+            UndoButton.Background = Brushes.Black;
+
+            RedoButton.BorderBrush = null;
+            RedoButton.Background = Brushes.Black;
+
+            ClearButton.BorderBrush = null;
+            ClearButton.Background = Brushes.Black;
         }
     }
 }

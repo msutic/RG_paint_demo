@@ -74,6 +74,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="DrawPolygonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DrawRectangleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -88,6 +92,9 @@
     </Compile>
     <Compile Include="DrawEllipseWindow.xaml.cs">
       <DependentUpon>DrawEllipseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DrawPolygonWindow.xaml.cs">
+      <DependentUpon>DrawPolygonWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="DrawRectangleWindow.xaml.cs">
       <DependentUpon>DrawRectangleWindow.xaml</DependentUpon>

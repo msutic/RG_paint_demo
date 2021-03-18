@@ -14,18 +14,18 @@
                 </MenuItem>
                 <MenuItem Name="RectangleButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Rectangle" FontSize="20" Header="_Rectangle" Click="RectangleButton_Click">
                 </MenuItem>
-                <MenuItem Name="PolygonButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Polygon" FontSize="20" Header="_Polygon">
+                <MenuItem Name="PolygonButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Polygon" FontSize="20" Header="_Polygon" Click="PolygonButton_Click">
                 </MenuItem>
                 <MenuItem Name="ImageButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Image" FontSize="20" Header="_Image">
                 </MenuItem>
-                <MenuItem Name="UndoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Undo last action" FontSize="20" Header="_Undo">
+                <MenuItem Name="UndoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Undo last action" FontSize="20" Header="_Undo" Click="UndoButton_Click">
                 </MenuItem>
                 <MenuItem Name="RedoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo">
                 </MenuItem>
                 <MenuItem Name="ClearButton" Cursor="Hand" FontFamily="Arial" ToolTip="Clear canvas" FontSize="20" Header="_Clear">
                 </MenuItem>
             </Menu>
-            <Canvas x:Name="PaintingCanvas" Grid.Row="1" Background="WhiteSmoke" MouseRightButtonUp="OnCanvasMouseRightClick">
+            <Canvas x:Name="PaintingCanvas" Grid.Row="1" Background="WhiteSmoke" MouseLeftButtonUp="CanvasLeftMouse_Click" MouseRightButtonUp="OnCanvasMouseRightClick">
             </Canvas>
         </DockPanel>
     </Grid>
