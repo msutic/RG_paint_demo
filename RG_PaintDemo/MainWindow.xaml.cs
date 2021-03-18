@@ -171,5 +171,11 @@ namespace RG_PaintDemo
             ClearButton.BorderBrush = null;
             ClearButton.Background = Brushes.Black;
         }
+
+        private void ImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            ImageWindow window = new ImageWindow();
+            window.ShowDialog();
+        }
     }
 }

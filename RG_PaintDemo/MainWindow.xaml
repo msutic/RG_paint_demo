@@ -16,7 +16,7 @@
                 </MenuItem>
                 <MenuItem Name="PolygonButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Polygon" FontSize="20" Header="_Polygon" Click="PolygonButton_Click">
                 </MenuItem>
-                <MenuItem Name="ImageButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Image" FontSize="20" Header="_Image">
+                <MenuItem Name="ImageButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Image" FontSize="20" Header="_Image" Click="ImageButton_Click">
                 </MenuItem>
                 <MenuItem Name="UndoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Undo last action" FontSize="20" Header="_Undo" Click="UndoButton_Click">
                 </MenuItem>
