@@ -28,7 +28,7 @@
         <TextBlock Grid.Column="0" Grid.Row="1" Text="height:" Margin="0,9,5,9" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="23" Width="60"></TextBlock>
         <wpfx:IntegerUpDown Name="heightIn" Increment="5" DefaultValue="50" FontFamily="Arial" FontSize="20" DisplayDefaultValueOnEmptyText="True" Grid.Row="1" Grid.Column="1"/>
 
-        <Button x:Name="ImagePathInButton" Content="Choose Image" Grid.Row="3" Grid.Column="0" Click="ImagePathInButton_Click"/>
+        <Button x:Name="ImagePathInButton" Content="Choose Image" FontFamily="Arial" FontSize="20" Grid.Row="3" Grid.Column="0" Click="ImagePathInButton_Click"/>
         <Image Name="imgPhoto" Stretch="Fill" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3"/>
 
         <Button x:Name="cancelButton" Cursor="Hand" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Cancel" Background="Gray" Grid.Row="5" Grid.Column="0" Click="CancelButton_Click"/>

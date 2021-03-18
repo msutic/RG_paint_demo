@@ -82,6 +82,19 @@ namespace RG_PaintDemo
             {
                 points.Add(position);
             }
+            else if (setter == 4)
+            {
+                ImageWindow window = new ImageWindow();
+                window.ShowDialog();
+
+                Rectangle image = window.r;
+                if(image != null)
+                {
+                    image.SetValue(Canvas.LeftProperty, x_coord);
+                    image.SetValue(Canvas.TopProperty, y_coord);
+                    PaintingCanvas.Children.Add(image);
+                }
+            }
         }
 
         private void EllipseButton_Click(object sender, RoutedEventArgs e)
@@ -174,8 +187,29 @@ namespace RG_PaintDemo
 
         private void ImageButton_Click(object sender, RoutedEventArgs e)
         {
-            ImageWindow window = new ImageWindow();
-            window.ShowDialog();
+            setter = 4;
+            ImageButton.BorderBrush = Brushes.Blue;
+            ImageButton.Background = Brushes.LightGray;
+            ImageButton.BorderThickness = new Thickness(2);
+
+            // reset other buttons
+            EllipseButton.BorderBrush = null;
+            EllipseButton.Background = Brushes.Black;
+
+            RectangleButton.BorderBrush = null;
+            RectangleButton.Background = Brushes.Black;
+
+            PolygonButton.BorderBrush = null;
+            PolygonButton.Background = Brushes.Black;
+
+            UndoButton.BorderBrush = null;
+            UndoButton.Background = Brushes.Black;
+
+            RedoButton.BorderBrush = null;
+            RedoButton.Background = Brushes.Black;
+
+            ClearButton.BorderBrush = null;
+            ClearButton.Background = Brushes.Black;
         }
     }
 }
