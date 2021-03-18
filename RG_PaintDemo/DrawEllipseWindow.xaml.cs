@@ -19,7 +19,7 @@ namespace RG_PaintDemo
     /// </summary>
     public partial class DrawEllipse : Window
     {
-        private Ellipse ellipseShape = new Ellipse();
+        public Ellipse ellipseObject = new Ellipse();
 
 
         public DrawEllipse()
@@ -98,7 +98,16 @@ namespace RG_PaintDemo
         {
             if (validate())
             {
+                ellipseObject = new Ellipse()
+                {
+                    Width = int.Parse(widthIn.Text),
+                    Height = int.Parse(heightIn.Text),
+                    Fill = new SolidColorBrush(fillColorIn.SelectedColor.Value),
+                    Stroke = new SolidColorBrush(borderColorIn.SelectedColor.Value),
+                    StrokeThickness = int.Parse(borderThicknessIn.Text)
+                };
 
+                Close();
             }
                 
         }

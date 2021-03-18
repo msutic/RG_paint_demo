@@ -22,8 +22,10 @@
                 </MenuItem>
                 <MenuItem Name="RedoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo">
                 </MenuItem>
+                <MenuItem Name="ClearButton" Cursor="Hand" FontFamily="Arial" ToolTip="Clear canvas" FontSize="20" Header="_Clear">
+                </MenuItem>
             </Menu>
-            <Canvas x:Name="PaintingCanvas" Grid.Row="1" Background="WhiteSmoke">
+            <Canvas x:Name="PaintingCanvas" Grid.Row="1" Background="WhiteSmoke" MouseRightButtonUp="OnCanvasMouseRightClick">
             </Canvas>
         </DockPanel>
     </Grid>
