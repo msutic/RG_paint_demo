@@ -197,6 +197,7 @@ namespace RG_PaintDemo
             {
                 s = Shapes[Shapes.Count - 1];       //get the last shape painted
                 Shapes.Remove(s);
+                DeletedShapes.Add(s);
                 PaintingCanvas.Children.Remove(s);
             }
         }
@@ -271,6 +272,18 @@ namespace RG_PaintDemo
             else if (objectToUpdate is Image img)
             {
                 PaintingCanvas.Children[index].SetValue(Image.SourceProperty, img.Source);
+            }
+        }
+
+        private void RedoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Shape s;
+            if(DeletedShapes.Count > 0)
+            {
+                s = DeletedShapes[DeletedShapes.Count - 1];
+                DeletedShapes.Remove(s);
+                Shapes.Add(s);
+                PaintingCanvas.Children.Add(s);
             }
         }
     }

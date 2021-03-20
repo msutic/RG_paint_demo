@@ -20,7 +20,7 @@
                 </MenuItem>
                 <MenuItem Name="UndoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Undo last action" FontSize="20" Header="_Undo" Click="UndoButton_Click">
                 </MenuItem>
-                <MenuItem Name="RedoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo">
+                <MenuItem Name="RedoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo" Click="RedoButton_Click">
                 </MenuItem>
                 <MenuItem Name="ClearButton" Cursor="Hand" FontFamily="Arial" ToolTip="Clear canvas" FontSize="20" Header="_Clear">
                 </MenuItem>
