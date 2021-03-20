@@ -22,7 +22,7 @@
                 </MenuItem>
                 <MenuItem Name="RedoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo" Click="RedoButton_Click">
                 </MenuItem>
-                <MenuItem Name="ClearButton" Cursor="Hand" FontFamily="Arial" ToolTip="Clear canvas" FontSize="20" Header="_Clear">
+                <MenuItem Name="ClearButton" Cursor="Hand" FontFamily="Arial" ToolTip="Clear canvas" FontSize="20" Header="_Clear" Click="ClearButton_Click">
                 </MenuItem>
             </Menu>
             <Canvas x:Name="PaintingCanvas" Grid.Row="1" Background="WhiteSmoke" MouseLeftButtonUp="CanvasLeftMouse_Click" MouseRightButtonUp="OnCanvasMouseRightClick">

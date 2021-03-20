@@ -25,6 +25,7 @@ namespace RG_PaintDemo
         public int setter { get; set; }
         public List<Shape> Shapes { get; set; } = new List<Shape>();
         public List<Shape> DeletedShapes { get; set; } = new List<Shape>();
+        public List<Shape> ShapesClearList { get; set; } = new List<Shape>();
 
         public MainWindow()
         {
@@ -284,6 +285,15 @@ namespace RG_PaintDemo
                 DeletedShapes.Remove(s);
                 Shapes.Add(s);
                 PaintingCanvas.Children.Add(s);
+            }
+        }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(Shapes.Count > 0) {
+                foreach (Shape s in Shapes) ShapesClearList.Add(s);
+                Shapes.Clear();
+                PaintingCanvas.Children.Clear();
             }
         }
     }
