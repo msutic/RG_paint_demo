@@ -25,6 +25,21 @@ namespace RG_PaintDemo
             InitializeComponent();
         }
 
+        public DrawRectangleWindow(Rectangle rectangle) : this()
+        {
+            rectangleObject = rectangle;
+            UpdateProperties(rectangle.Width, rectangle.Height, rectangle.Fill, rectangle.Stroke, rectangle.StrokeThickness);
+        }
+
+        private void UpdateProperties(double width, double height, Brush fill, Brush border, double borderThickness)
+        {
+            widthIn.Value = (int)width;
+            heightIn.Value = (int)height;
+            fillColorIn.SelectedColor = (Color)fill.GetValue(SolidColorBrush.ColorProperty);
+            borderColorIn.SelectedColor = (Color)border.GetValue(SolidColorBrush.ColorProperty);
+            borderThicknessIn.Value = (int)borderThickness;
+        }
+
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

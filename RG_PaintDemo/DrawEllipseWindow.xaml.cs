@@ -27,6 +27,21 @@ namespace RG_PaintDemo
             InitializeComponent();
         }
 
+        public DrawEllipse(Ellipse ellipse) : this()
+        {
+            ellipseObject = ellipse;
+            UpdateProperties(ellipse.Width, ellipse.Height, ellipse.Fill, ellipse.Stroke, ellipse.StrokeThickness);
+        }
+
+        private void UpdateProperties(double width, double height, Brush fill, Brush border, double borderThickness)
+        {
+            widthIn.Value = (int)width;
+            heightIn.Value = (int)height;
+            fillColorIn.SelectedColor = (Color)fill.GetValue(SolidColorBrush.ColorProperty);
+            borderColorIn.SelectedColor = (Color)border.GetValue(SolidColorBrush.ColorProperty);
+            borderThicknessIn.Value = (int)borderThickness;
+        }
+
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

@@ -44,7 +44,25 @@ namespace RG_PaintDemo
 
                 points.Clear();
             }
+            else
+            {
+                if (e.OriginalSource is Ellipse)
+                {
+                    Ellipse SelectedEllipse = (Ellipse)e.OriginalSource;
+                    DrawEllipse drawEllipseWindow = new DrawEllipse(SelectedEllipse);
+                    drawEllipseWindow.ShowDialog();
+                    UpdateObjectValues(PaintingCanvas.Children.IndexOf(SelectedEllipse), drawEllipseWindow.ellipseObject);
+                }
+                else if(e.OriginalSource is Rectangle)
+                {
+                    Rectangle SelectedRectangle = (Rectangle)e.OriginalSource;
+                    DrawRectangleWindow drawRectangleWindow = new DrawRectangleWindow(SelectedRectangle);
+                    drawRectangleWindow.ShowDialog();
+                    UpdateObjectValues(PaintingCanvas.Children.IndexOf(SelectedRectangle), drawRectangleWindow.rectangleObject);
+                }
+            }
         }
+        
 
         private void OnCanvasMouseRightClick(object sender, MouseButtonEventArgs e)
         {
@@ -63,6 +81,7 @@ namespace RG_PaintDemo
                     ellipse.SetValue(Canvas.LeftProperty, x_coord);
                     ellipse.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(ellipse);
+                    //ellipse.MouseLeftButtonUp += Ellipse_MouseLeftButtonUp;
                 }
             }
             else if(setter == 2)
@@ -210,6 +229,25 @@ namespace RG_PaintDemo
 
             ClearButton.BorderBrush = null;
             ClearButton.Background = Brushes.Black;
+        }
+
+        private void UpdateObjectValues(int index, object objectToUpdate)
+        {
+            var fe = objectToUpdate as FrameworkElement;
+
+            PaintingCanvas.Children[index].SetValue(WidthProperty, fe.Width);
+            PaintingCanvas.Children[index].SetValue(HeightProperty, fe.Height);
+
+            if (objectToUpdate is Shape shape)
+            {
+                PaintingCanvas.Children[index].SetValue(Shape.FillProperty, shape.Fill);
+                PaintingCanvas.Children[index].SetValue(Shape.StrokeProperty, shape.Stroke);
+                PaintingCanvas.Children[index].SetValue(Shape.StrokeThicknessProperty, shape.StrokeThickness);
+            }
+            else if (objectToUpdate is Image img)
+            {
+                PaintingCanvas.Children[index].SetValue(Image.SourceProperty, img.Source);
+            }
         }
     }
 }
