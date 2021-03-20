@@ -56,10 +56,22 @@ namespace RG_PaintDemo
                 else if(e.OriginalSource is Rectangle)
                 {
                     Rectangle SelectedRectangle = (Rectangle)e.OriginalSource;
-                    DrawRectangleWindow drawRectangleWindow = new DrawRectangleWindow(SelectedRectangle);
-                    drawRectangleWindow.ShowDialog();
-                    UpdateObjectValues(PaintingCanvas.Children.IndexOf(SelectedRectangle), drawRectangleWindow.rectangleObject);
+                    if(SelectedRectangle.Stroke != null)
+                    {
+                        DrawRectangleWindow drawRectangleWindow = new DrawRectangleWindow(SelectedRectangle);
+                        drawRectangleWindow.ShowDialog();
+                        UpdateObjectValues(PaintingCanvas.Children.IndexOf(SelectedRectangle), drawRectangleWindow.rectangleObject);
+                    }
+                    
                 }
+                else if (e.OriginalSource is Polygon)
+                {
+                    Polygon SelectedPolygon = (Polygon)e.OriginalSource;
+                    DrawPolygonWindow drawPolygonWindow = new DrawPolygonWindow(SelectedPolygon);
+                    drawPolygonWindow.ShowDialog();
+                    UpdateObjectValues(PaintingCanvas.Children.IndexOf(SelectedPolygon), drawPolygonWindow.polygonObject);
+                }
+
             }
         }
         

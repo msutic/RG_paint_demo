@@ -32,6 +32,19 @@ namespace RG_PaintDemo
             this.points = points;
         }
 
+        public DrawPolygonWindow(Polygon polygon) : this()
+        {
+            polygonObject = polygon;
+            UpdateProperties(polygon.Fill, polygon.Stroke, polygon.StrokeThickness);
+        }
+
+        private void UpdateProperties(Brush fill, Brush border, double borderThickness)
+        {
+            fillColorIn.SelectedColor = (Color)fill.GetValue(SolidColorBrush.ColorProperty);
+            borderColorIn.SelectedColor = (Color)border.GetValue(SolidColorBrush.ColorProperty);
+            borderThicknessIn.Value = (int)borderThickness;
+        }
+
         public bool validate()
         {
             if (fillColorIn.SelectedColor == null)
