@@ -23,6 +23,8 @@ namespace RG_PaintDemo
         public static Point MousePosition { get; }
         private PointCollection points = new PointCollection();
         public int setter { get; set; }
+        public List<Shape> Shapes { get; set; } = new List<Shape>();
+        public List<Shape> DeletedShapes { get; set; } = new List<Shape>();
 
         public MainWindow()
         {
@@ -40,6 +42,7 @@ namespace RG_PaintDemo
                 if(polygon != null)
                 {
                     PaintingCanvas.Children.Add(polygon);
+                    Shapes.Add(polygon);
                 }
 
                 points.Clear();
@@ -93,6 +96,7 @@ namespace RG_PaintDemo
                     ellipse.SetValue(Canvas.LeftProperty, x_coord);
                     ellipse.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(ellipse);
+                    Shapes.Add(ellipse);
                     //ellipse.MouseLeftButtonUp += Ellipse_MouseLeftButtonUp;
                 }
             }
@@ -107,6 +111,7 @@ namespace RG_PaintDemo
                     rectangle.SetValue(Canvas.LeftProperty, x_coord);
                     rectangle.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(rectangle);
+                    Shapes.Add(rectangle);
                 }
             }
             else if(setter == 3)
@@ -124,6 +129,7 @@ namespace RG_PaintDemo
                     image.SetValue(Canvas.LeftProperty, x_coord);
                     image.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(image);
+                    Shapes.Add(image);
                 }
             }
         }
@@ -186,7 +192,13 @@ namespace RG_PaintDemo
 
         private void UndoButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Shape s;
+            if(Shapes.Count > 0)
+            {
+                s = Shapes[Shapes.Count - 1];       //get the last shape painted
+                Shapes.Remove(s);
+                PaintingCanvas.Children.Remove(s);
+            }
         }
 
         private void PolygonButton_Click(object sender, RoutedEventArgs e)
