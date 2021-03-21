@@ -23,7 +23,7 @@ namespace RG_PaintDemo
         public static Point MousePosition { get; }
         private PointCollection points = new PointCollection();
         public int setter { get; set; }
-
+        private int clickedRight = 0;
 
         public Stack<Command> UndoableCommands { get; set; } = new Stack<Command>();
         public Stack<Command> RedoableCommands { get; set; } = new Stack<Command>();
@@ -35,19 +35,21 @@ namespace RG_PaintDemo
 
         private void CanvasLeftMouse_Click(object sender, MouseButtonEventArgs e)
         {
-            if(setter == 3)
+            if(setter == 3 && clickedRight >=3)
             {
                 DrawPolygonWindow drawPolygonWindow = new DrawPolygonWindow(new PointCollection(points));
                 drawPolygonWindow.ShowDialog();
 
                 var polygon = drawPolygonWindow.polygonObject;
-                if(polygon != null)
+                if (polygon != null)
                 {
                     PaintingCanvas.Children.Add(polygon);
                     UndoableCommands.Push(new Command("add", PaintingCanvas.Children.IndexOf(polygon), polygon));
                 }
 
                 points.Clear();
+                clickedRight = 0;
+                
             }
             else
             {
@@ -116,6 +118,7 @@ namespace RG_PaintDemo
             else if(setter == 3)
             {
                 points.Add(position);
+                clickedRight += 1;
             }
             else if (setter == 4)
             {
@@ -203,7 +206,7 @@ namespace RG_PaintDemo
                     }
                     else if (command.Action.Equals("clear"))
                     {
-                        foreach (Shape s in command.Obj as List<Shape>) PaintingCanvas.Children.Add(s);
+                        foreach (UIElement s in command.Obj as List<UIElement>) PaintingCanvas.Children.Add(s);
                         RedoableCommands.Push(new Command("clear", -1, null));
                     }
                 }
@@ -277,10 +280,6 @@ namespace RG_PaintDemo
                 PaintingCanvas.Children[index].SetValue(Shape.FillProperty, shape.Fill);
                 PaintingCanvas.Children[index].SetValue(Shape.StrokeProperty, shape.Stroke);
                 PaintingCanvas.Children[index].SetValue(Shape.StrokeThicknessProperty, shape.StrokeThickness);
-            }
-            else if (objectToUpdate is Image img)
-            {
-                PaintingCanvas.Children[index].SetValue(Image.SourceProperty, img.Source);
             }
         }
 
