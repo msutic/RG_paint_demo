@@ -29,6 +29,8 @@ namespace RG_PaintDemo
 
         public DrawEllipse(Ellipse ellipse) : this()
         {
+            Title = "Modify Ellipse";
+            drawButton.Content = "Apply";
             ellipseObject = ellipse;
             UpdateProperties(ellipse.Width, ellipse.Height, ellipse.Fill, ellipse.Stroke, ellipse.StrokeThickness);
         }

@@ -27,6 +27,8 @@ namespace RG_PaintDemo
 
         public DrawRectangleWindow(Rectangle rectangle) : this()
         {
+            Title = "Modify Rectangle";
+            drawButton.Content = "Apply";
             rectangleObject = rectangle;
             UpdateProperties(rectangle.Width, rectangle.Height, rectangle.Fill, rectangle.Stroke, rectangle.StrokeThickness);
         }

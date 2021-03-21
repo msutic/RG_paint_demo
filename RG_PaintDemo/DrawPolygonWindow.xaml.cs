@@ -34,6 +34,8 @@ namespace RG_PaintDemo
 
         public DrawPolygonWindow(Polygon polygon) : this()
         {
+            Title = "Modify Polygon";
+            drawButton.Content = "Apply";
             polygonObject = polygon;
             UpdateProperties(polygon.Fill, polygon.Stroke, polygon.StrokeThickness);
         }

@@ -13,26 +13,15 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="RG-PSI-PZ1 - Marko Sutic" Height="600" Width="800">
+        Title="RG-PSI-PZ1 - Marko Sutic // Paint demo" Height="600" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         
-        <ToolBarTray Grid.Row="0">
+        <ToolBarTray Orientation="Vertical" IsLocked="True" Grid.Column="0">
             <ToolBar Style="{DynamicResource MaterialDesignToolBar}">
-                
-                <Button Name="UndoButton" Cursor="Hand" ToolTip="Undo last action" Click="UndoButton_Click">
-                    <materialDesign:PackIcon Kind="UndoVariant"/>
-                </Button>
-                <Button Name="RedoButton" Cursor="Hand"  ToolTip="Redo last action" Click="RedoButton_Click">
-                    <materialDesign:PackIcon Kind="RedoVariant"/>
-                </Button>
-                <Button Name="ClearButton" Cursor="Hand" ToolTip="Clear canvas" Click="ClearButton_Click">
-                    <materialDesign:PackIcon Kind="Restart"/>
-                </Button>
-                <Separator/>
                 <Button Name="EllipseButton" Cursor="Hand" ToolTip="Add Ellipse" Click="EllipseButton_Click">
                     <materialDesign:PackIcon Kind="CircleOutline"/>
                 </Button>
@@ -47,8 +36,19 @@
                 </Button>
                 <Separator/>
             </ToolBar>
+            <ToolBar Margin="0,-18,0,18" Style="{DynamicResource MaterialDesignToolBar}">
+                <Button Name="UndoButton" Cursor="Hand" ToolTip="Undo last action" Click="UndoButton_Click">
+                    <materialDesign:PackIcon Kind="UndoVariant"/>
+                </Button>
+                <Button Name="RedoButton" Cursor="Hand"  ToolTip="Redo last action" Click="RedoButton_Click">
+                    <materialDesign:PackIcon Kind="RedoVariant"/>
+                </Button>
+                <Button Name="ClearButton" Cursor="Hand" ToolTip="Clear canvas" Click="ClearButton_Click">
+                    <materialDesign:PackIcon Kind="Restart"/>
+                </Button>
+            </ToolBar>
         </ToolBarTray>
-        <Canvas x:Name="PaintingCanvas" Grid.Row="1" Background="WhiteSmoke" MouseLeftButtonUp="CanvasLeftMouse_Click" MouseRightButtonUp="OnCanvasMouseRightClick">
+        <Canvas x:Name="PaintingCanvas" Grid.Column="1" Background="WhiteSmoke" MouseLeftButtonUp="CanvasLeftMouse_Click" MouseRightButtonUp="OnCanvasMouseRightClick">
         </Canvas>
     </Grid>
 </Window>
