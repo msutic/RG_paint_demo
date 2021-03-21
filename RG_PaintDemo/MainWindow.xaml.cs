@@ -23,9 +23,10 @@ namespace RG_PaintDemo
         public static Point MousePosition { get; }
         private PointCollection points = new PointCollection();
         public int setter { get; set; }
-        public List<Shape> Shapes { get; set; } = new List<Shape>();
-        public List<Shape> DeletedShapes { get; set; } = new List<Shape>();
-        public List<Shape> ShapesClearList { get; set; } = new List<Shape>();
+
+
+        public Stack<Command> UndoableCommands { get; set; } = new Stack<Command>();
+        public Stack<Command> RedoableCommands { get; set; } = new Stack<Command>();
 
         public MainWindow()
         {
@@ -43,7 +44,7 @@ namespace RG_PaintDemo
                 if(polygon != null)
                 {
                     PaintingCanvas.Children.Add(polygon);
-                    Shapes.Add(polygon);
+                    UndoableCommands.Push(new Command("add", PaintingCanvas.Children.IndexOf(polygon), polygon));
                 }
 
                 points.Clear();
@@ -75,11 +76,9 @@ namespace RG_PaintDemo
                     drawPolygonWindow.ShowDialog();
                     UpdateObjectValues(PaintingCanvas.Children.IndexOf(SelectedPolygon), drawPolygonWindow.polygonObject);
                 }
-
             }
         }
         
-
         private void OnCanvasMouseRightClick(object sender, MouseButtonEventArgs e)
         {
             var position = e.GetPosition(PaintingCanvas);
@@ -97,8 +96,7 @@ namespace RG_PaintDemo
                     ellipse.SetValue(Canvas.LeftProperty, x_coord);
                     ellipse.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(ellipse);
-                    Shapes.Add(ellipse);
-                    //ellipse.MouseLeftButtonUp += Ellipse_MouseLeftButtonUp;
+                    UndoableCommands.Push(new Command("add", PaintingCanvas.Children.IndexOf(ellipse), ellipse));
                 }
             }
             else if(setter == 2)
@@ -112,7 +110,7 @@ namespace RG_PaintDemo
                     rectangle.SetValue(Canvas.LeftProperty, x_coord);
                     rectangle.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(rectangle);
-                    Shapes.Add(rectangle);
+                    UndoableCommands.Push(new Command("add", PaintingCanvas.Children.IndexOf(rectangle), rectangle));
                 }
             }
             else if(setter == 3)
@@ -130,7 +128,7 @@ namespace RG_PaintDemo
                     image.SetValue(Canvas.LeftProperty, x_coord);
                     image.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(image);
-                    Shapes.Add(image);
+                    UndoableCommands.Push(new Command("add", PaintingCanvas.Children.IndexOf(image), image));
                 }
             }
         }
@@ -193,14 +191,24 @@ namespace RG_PaintDemo
 
         private void UndoButton_Click(object sender, RoutedEventArgs e)
         {
-            Shape s;
-            if(Shapes.Count > 0)
+            try
             {
-                s = Shapes[Shapes.Count - 1];       //get the last shape painted
-                Shapes.Remove(s);
-                DeletedShapes.Add(s);
-                PaintingCanvas.Children.Remove(s);
+                if (UndoableCommands.Count > 0)
+                {
+                    var command = UndoableCommands.Pop();
+                    if (command.Action.Equals("add"))
+                    {
+                        PaintingCanvas.Children.RemoveAt(command.Index);
+                        RedoableCommands.Push(new Command("add", command.Index, command.Obj));
+                    }
+                    else if (command.Action.Equals("clear"))
+                    {
+                        foreach (Shape s in command.Obj as List<Shape>) PaintingCanvas.Children.Add(s);
+                        RedoableCommands.Push(new Command("clear", -1, null));
+                    }
+                }
             }
+            catch { }
         }
 
         private void PolygonButton_Click(object sender, RoutedEventArgs e)
@@ -278,23 +286,30 @@ namespace RG_PaintDemo
 
         private void RedoButton_Click(object sender, RoutedEventArgs e)
         {
-            Shape s;
-            if(DeletedShapes.Count > 0)
+            try
             {
-                s = DeletedShapes[DeletedShapes.Count - 1];
-                DeletedShapes.Remove(s);
-                Shapes.Add(s);
-                PaintingCanvas.Children.Add(s);
+                if (RedoableCommands.Count > 0)
+                {
+                    var command = RedoableCommands.Pop();
+                    if (command.Action.Equals("add"))
+                    {
+                        PaintingCanvas.Children.Insert(command.Index, (UIElement)command.Obj);
+                        UndoableCommands.Push(new Command("add", command.Index, command.Obj));
+                    }
+                    else if (command.Action.Equals("clear"))
+                    {
+                        UndoableCommands.Push(new Command("clear", -1, (from UIElement el in PaintingCanvas.Children select el).ToList()));
+                        PaintingCanvas.Children.Clear();
+                    }
+                }
             }
+            catch { }
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            if(Shapes.Count > 0) {
-                foreach (Shape s in Shapes) ShapesClearList.Add(s);
-                Shapes.Clear();
-                PaintingCanvas.Children.Clear();
-            }
+            UndoableCommands.Push(new Command("clear", -1, (from UIElement el in PaintingCanvas.Children select el).ToList()));
+            PaintingCanvas.Children.Clear();
         }
     }
 }
