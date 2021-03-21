@@ -31,6 +31,7 @@ namespace RG_PaintDemo
         public MainWindow()
         {
             InitializeComponent();
+            RedoButton.IsEnabled = false;
         }
 
         private void CanvasLeftMouse_Click(object sender, MouseButtonEventArgs e)
@@ -45,6 +46,7 @@ namespace RG_PaintDemo
                 {
                     PaintingCanvas.Children.Add(polygon);
                     UndoableCommands.Push(new Command("add", PaintingCanvas.Children.IndexOf(polygon), polygon));
+                    RedoableCommands.Clear();
                 }
 
                 points.Clear();
@@ -99,6 +101,7 @@ namespace RG_PaintDemo
                     ellipse.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(ellipse);
                     UndoableCommands.Push(new Command("add", PaintingCanvas.Children.IndexOf(ellipse), ellipse));
+                    RedoableCommands.Clear();
                 }
             }
             else if(setter == 2)
@@ -113,6 +116,7 @@ namespace RG_PaintDemo
                     rectangle.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(rectangle);
                     UndoableCommands.Push(new Command("add", PaintingCanvas.Children.IndexOf(rectangle), rectangle));
+                    RedoableCommands.Clear();
                 }
             }
             else if(setter == 3)
@@ -132,8 +136,10 @@ namespace RG_PaintDemo
                     image.SetValue(Canvas.TopProperty, y_coord);
                     PaintingCanvas.Children.Add(image);
                     UndoableCommands.Push(new Command("add", PaintingCanvas.Children.IndexOf(image), image));
+                    RedoableCommands.Clear();
                 }
             }
+
         }
 
         private void EllipseButton_Click(object sender, RoutedEventArgs e)
@@ -209,6 +215,7 @@ namespace RG_PaintDemo
                         foreach (UIElement s in command.Obj as List<UIElement>) PaintingCanvas.Children.Add(s);
                         RedoableCommands.Push(new Command("clear", -1, null));
                     }
+                    RedoButton.IsEnabled = true;
                 }
             }
             catch { }
@@ -303,12 +310,16 @@ namespace RG_PaintDemo
                 }
             }
             catch { }
+            if (!(RedoableCommands.Count > 0)) RedoButton.IsEnabled = false;
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
-            UndoableCommands.Push(new Command("clear", -1, (from UIElement el in PaintingCanvas.Children select el).ToList()));
-            PaintingCanvas.Children.Clear();
+            if (PaintingCanvas.Children.Count > 0) {
+                UndoableCommands.Push(new Command("clear", -1, (from UIElement el in PaintingCanvas.Children select el).ToList()));
+                PaintingCanvas.Children.Clear();
+                RedoButton.IsEnabled = false;
+            }
         }
     }
 }
