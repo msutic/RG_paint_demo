@@ -61,6 +61,8 @@ namespace RG_PaintDemo
                     DrawEllipse drawEllipseWindow = new DrawEllipse(SelectedEllipse);
                     drawEllipseWindow.ShowDialog();
                     UpdateObjectValues(PaintingCanvas.Children.IndexOf(SelectedEllipse), drawEllipseWindow.ellipseObject);
+                    points.Clear();
+                    clickedRight = 0;
                 }
                 else if(e.OriginalSource is Rectangle)
                 {
@@ -71,7 +73,9 @@ namespace RG_PaintDemo
                         drawRectangleWindow.ShowDialog();
                         UpdateObjectValues(PaintingCanvas.Children.IndexOf(SelectedRectangle), drawRectangleWindow.rectangleObject);
                     }
-                    
+                    points.Clear();
+                    clickedRight = 0;
+
                 }
                 else if (e.OriginalSource is Polygon)
                 {
@@ -79,6 +83,8 @@ namespace RG_PaintDemo
                     DrawPolygonWindow drawPolygonWindow = new DrawPolygonWindow(SelectedPolygon);
                     drawPolygonWindow.ShowDialog();
                     UpdateObjectValues(PaintingCanvas.Children.IndexOf(SelectedPolygon), drawPolygonWindow.polygonObject);
+                    points.Clear();
+                    clickedRight = 0;
                 }
             }
         }
