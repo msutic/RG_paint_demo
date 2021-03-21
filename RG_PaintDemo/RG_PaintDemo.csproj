@@ -147,17 +147,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Resource Include="src\img\rectangle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="src\img\circle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="src\img\circle2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="src\img\rect.png" />
+    <Resource Include="img\beer.JPG" />
+    <Resource Include="img\butterfly.PNG" />
+    <Resource Include="img\lamborghini.jpg" />
+    <Resource Include="img\mustang.jpg" />
+    <Resource Include="img\space_invaders.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.0.0\build\MaterialDesignThemes.targets')" />

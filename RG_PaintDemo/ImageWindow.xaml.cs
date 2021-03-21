@@ -83,6 +83,12 @@ namespace RG_PaintDemo
                 return false;
             }
 
+            if(imgPhoto.Source == null)
+            {
+                MessageBox.Show("Invalid image source.", "Error!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
             return true;
         }
     }

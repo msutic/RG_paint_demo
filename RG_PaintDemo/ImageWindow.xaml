@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:RG_PaintDemo"
         xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Insert Image" Height="320" Width="350">
+        Title="Insert Image" Height="400" Width="370">
 
     <Grid Margin="20,36,20,20">
         <Grid.ColumnDefinitions>
@@ -31,7 +31,7 @@
         <Button x:Name="ImagePathInButton" Width="100" Content="Browse" FontFamily="Arial" FontSize="20" Grid.Row="3" Grid.Column="0" Click="ImagePathInButton_Click" Margin="6,3,6,4"/>
         <Image Name="imgPhoto" Stretch="Fill" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3"/>
 
-        <Button x:Name="cancelButton" Cursor="Hand" FontFamily="Arial" FontSize="20" Margin="31,5" Content="Cancel" Grid.Row="5" Grid.Column="0" Click="CancelButton_Click"/>
+        <Button x:Name="cancelButton" Cursor="Hand" FontFamily="Arial" FontSize="20" Margin="31,7,31,10" Content="Cancel" Grid.Row="5" Grid.Column="0" Click="CancelButton_Click"/>
         <Button x:Name="drawButton" Cursor="Hand" FontFamily="Arial" FontSize="20" Margin="20,5" Content="Draw" Grid.Row="5" Grid.Column="1" Click="DrawButton_Click"/>
 
     </Grid>

@@ -88,7 +88,6 @@ namespace RG_PaintDemo
             var position = e.GetPosition(PaintingCanvas);
             double x_coord = position.X;
             double y_coord = position.Y;
-            // TODO - handle mouse right click
             if(setter == 1)
             {
                 DrawEllipse ellipseWindow = new DrawEllipse();
@@ -149,17 +148,11 @@ namespace RG_PaintDemo
 
             // reset other buttons
             RectangleButton.Foreground = Brushes.Black;
-            
             PolygonButton.Foreground = Brushes.Black;
-            
             ImageButton.Foreground = Brushes.Black;
-            
             UndoButton.Foreground = Brushes.Black;
-            
             RedoButton.Foreground = Brushes.Black;
-            
             ClearButton.Foreground = Brushes.Black;
-
         }
 
         private void RectangleButton_Click(object sender, RoutedEventArgs e)
@@ -169,17 +162,11 @@ namespace RG_PaintDemo
             
             // reset other buttons
             EllipseButton.Foreground = Brushes.Black;
-            
             PolygonButton.Foreground = Brushes.Black;
-            
             ImageButton.Foreground = Brushes.Black;
-            
             UndoButton.Foreground = Brushes.Black;
-            
             RedoButton.Foreground = Brushes.Black;
-            
             ClearButton.Foreground = Brushes.Black;
-
         }
 
         private void UndoButton_Click(object sender, RoutedEventArgs e)
@@ -212,15 +199,10 @@ namespace RG_PaintDemo
 
             // reset other buttons
             EllipseButton.Foreground = Brushes.Black;
-            
             RectangleButton.Foreground = Brushes.Black;
-            
             ImageButton.Foreground = Brushes.Black;
-            
             UndoButton.Foreground = Brushes.Black;
-            
             RedoButton.Foreground = Brushes.Black;
-            
             ClearButton.Foreground = Brushes.Black;
         }
 
@@ -231,15 +213,10 @@ namespace RG_PaintDemo
 
             // reset other buttons
             EllipseButton.Foreground = Brushes.Black;
-            
             RectangleButton.Foreground = Brushes.Black;
-            
             PolygonButton.Foreground = Brushes.Black;
-            
             UndoButton.Foreground = Brushes.Black;
-            
             RedoButton.Foreground = Brushes.Black;
-            
             ClearButton.Foreground = Brushes.Black;
         }
 
