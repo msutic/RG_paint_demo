@@ -145,56 +145,40 @@ namespace RG_PaintDemo
         private void EllipseButton_Click(object sender, RoutedEventArgs e)
         {
             setter = 1;
-            EllipseButton.BorderBrush = Brushes.Blue;
-            EllipseButton.Background = Brushes.LightGray;
-            EllipseButton.BorderThickness = new Thickness(2);
+            EllipseButton.Foreground = Brushes.SkyBlue;
 
             // reset other buttons
-            RectangleButton.BorderBrush = null;
-            RectangleButton.Background = Brushes.Black;
-
-            PolygonButton.BorderBrush = null;
-            PolygonButton.Background = Brushes.Black;
-
-            ImageButton.BorderBrush = null;
-            ImageButton.Background = Brushes.Black;
-
-            UndoButton.BorderBrush = null;
-            UndoButton.Background = Brushes.Black;
-
-            RedoButton.BorderBrush = null;
-            RedoButton.Background = Brushes.Black;
-
-            ClearButton.BorderBrush = null;
-            ClearButton.Background = Brushes.Black;
+            RectangleButton.Foreground = Brushes.Black;
+            
+            PolygonButton.Foreground = Brushes.Black;
+            
+            ImageButton.Foreground = Brushes.Black;
+            
+            UndoButton.Foreground = Brushes.Black;
+            
+            RedoButton.Foreground = Brushes.Black;
+            
+            ClearButton.Foreground = Brushes.Black;
 
         }
 
         private void RectangleButton_Click(object sender, RoutedEventArgs e)
         {
             setter = 2;
-            RectangleButton.BorderBrush = Brushes.Blue;
-            RectangleButton.Background = Brushes.LightGray;
-            RectangleButton.BorderThickness = new Thickness(2);
+            RectangleButton.Foreground = Brushes.SkyBlue;
             
             // reset other buttons
-            EllipseButton.BorderBrush = null;
-            EllipseButton.Background = Brushes.Black;
-
-            PolygonButton.BorderBrush = null;
-            PolygonButton.Background = Brushes.Black;
-
-            ImageButton.BorderBrush = null;
-            ImageButton.Background = Brushes.Black;
-
-            UndoButton.BorderBrush = null;
-            UndoButton.Background = Brushes.Black;
-
-            RedoButton.BorderBrush = null;
-            RedoButton.Background = Brushes.Black;
-
-            ClearButton.BorderBrush = null;
-            ClearButton.Background = Brushes.Black;
+            EllipseButton.Foreground = Brushes.Black;
+            
+            PolygonButton.Foreground = Brushes.Black;
+            
+            ImageButton.Foreground = Brushes.Black;
+            
+            UndoButton.Foreground = Brushes.Black;
+            
+            RedoButton.Foreground = Brushes.Black;
+            
+            ClearButton.Foreground = Brushes.Black;
 
         }
 
@@ -224,55 +208,39 @@ namespace RG_PaintDemo
         private void PolygonButton_Click(object sender, RoutedEventArgs e)
         {
             setter = 3;
-            PolygonButton.BorderBrush = Brushes.Blue;
-            PolygonButton.Background = Brushes.LightGray;
-            PolygonButton.BorderThickness = new Thickness(2);
+            PolygonButton.Foreground = Brushes.SkyBlue;
 
             // reset other buttons
-            EllipseButton.BorderBrush = null;
-            EllipseButton.Background = Brushes.Black;
-
-            RectangleButton.BorderBrush = null;
-            RectangleButton.Background = Brushes.Black;
-
-            ImageButton.BorderBrush = null;
-            ImageButton.Background = Brushes.Black;
-
-            UndoButton.BorderBrush = null;
-            UndoButton.Background = Brushes.Black;
-
-            RedoButton.BorderBrush = null;
-            RedoButton.Background = Brushes.Black;
-
-            ClearButton.BorderBrush = null;
-            ClearButton.Background = Brushes.Black;
+            EllipseButton.Foreground = Brushes.Black;
+            
+            RectangleButton.Foreground = Brushes.Black;
+            
+            ImageButton.Foreground = Brushes.Black;
+            
+            UndoButton.Foreground = Brushes.Black;
+            
+            RedoButton.Foreground = Brushes.Black;
+            
+            ClearButton.Foreground = Brushes.Black;
         }
 
         private void ImageButton_Click(object sender, RoutedEventArgs e)
         {
             setter = 4;
-            ImageButton.BorderBrush = Brushes.Blue;
-            ImageButton.Background = Brushes.LightGray;
-            ImageButton.BorderThickness = new Thickness(2);
+            ImageButton.Foreground = Brushes.SkyBlue;
 
             // reset other buttons
-            EllipseButton.BorderBrush = null;
-            EllipseButton.Background = Brushes.Black;
-
-            RectangleButton.BorderBrush = null;
-            RectangleButton.Background = Brushes.Black;
-
-            PolygonButton.BorderBrush = null;
-            PolygonButton.Background = Brushes.Black;
-
-            UndoButton.BorderBrush = null;
-            UndoButton.Background = Brushes.Black;
-
-            RedoButton.BorderBrush = null;
-            RedoButton.Background = Brushes.Black;
-
-            ClearButton.BorderBrush = null;
-            ClearButton.Background = Brushes.Black;
+            EllipseButton.Foreground = Brushes.Black;
+            
+            RectangleButton.Foreground = Brushes.Black;
+            
+            PolygonButton.Foreground = Brushes.Black;
+            
+            UndoButton.Foreground = Brushes.Black;
+            
+            RedoButton.Foreground = Brushes.Black;
+            
+            ClearButton.Foreground = Brushes.Black;
         }
 
         private void UpdateObjectValues(int index, object objectToUpdate)

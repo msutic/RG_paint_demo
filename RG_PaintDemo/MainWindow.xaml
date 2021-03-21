@@ -4,29 +4,51 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RG_PaintDemo"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="RG-PSI-PZ1 - Marko Sutic" Height="600" Width="800">
     <Grid>
-        <DockPanel Background="BlanchedAlmond">
-            <TextBlock Margin="10,30,10,10" HorizontalAlignment="Center" DockPanel.Dock="Top" Text="Paint demo" FontFamily="Arial" FontSize="30" Height="37"/>
-            <Menu Background="Black" Foreground="WhiteSmoke" DockPanel.Dock="Top">
-                <MenuItem Name="EllipseButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Ellipse" FontSize="20" Header="_Ellipse" Click="EllipseButton_Click">
-                </MenuItem>
-                <MenuItem Name="RectangleButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Rectangle" FontSize="20" Header="_Rectangle" Click="RectangleButton_Click">
-                </MenuItem>
-                <MenuItem Name="PolygonButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Polygon" FontSize="20" Header="_Polygon" Click="PolygonButton_Click">
-                </MenuItem>
-                <MenuItem Name="ImageButton" Cursor="Hand" FontFamily="Arial" ToolTip="Add Image" FontSize="20" Header="_Image" Click="ImageButton_Click">
-                </MenuItem>
-                <MenuItem Name="UndoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Undo last action" FontSize="20" Header="_Undo" Click="UndoButton_Click">
-                </MenuItem>
-                <MenuItem Name="RedoButton" Cursor="Hand" FontFamily="Arial" ToolTip="Redo last action" FontSize="20" Header="_Redo" Click="RedoButton_Click">
-                </MenuItem>
-                <MenuItem Name="ClearButton" Cursor="Hand" FontFamily="Arial" ToolTip="Clear canvas" FontSize="20" Header="_Clear" Click="ClearButton_Click">
-                </MenuItem>
-            </Menu>
-            <Canvas x:Name="PaintingCanvas" Grid.Row="1" Background="WhiteSmoke" MouseLeftButtonUp="CanvasLeftMouse_Click" MouseRightButtonUp="OnCanvasMouseRightClick">
-            </Canvas>
-        </DockPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <ToolBarTray Grid.Row="0">
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}">
+                
+                <Button Name="UndoButton" Cursor="Hand" ToolTip="Undo last action" Click="UndoButton_Click">
+                    <materialDesign:PackIcon Kind="UndoVariant"/>
+                </Button>
+                <Button Name="RedoButton" Cursor="Hand"  ToolTip="Redo last action" Click="RedoButton_Click">
+                    <materialDesign:PackIcon Kind="RedoVariant"/>
+                </Button>
+                <Button Name="ClearButton" Cursor="Hand" ToolTip="Clear canvas" Click="ClearButton_Click">
+                    <materialDesign:PackIcon Kind="Restart"/>
+                </Button>
+                <Separator/>
+                <Button Name="EllipseButton" Cursor="Hand" ToolTip="Add Ellipse" Click="EllipseButton_Click">
+                    <materialDesign:PackIcon Kind="CircleOutline"/>
+                </Button>
+                <Button Name="RectangleButton" Cursor="Hand" ToolTip="Add Rectangle" Click="RectangleButton_Click">
+                    <materialDesign:PackIcon Kind="RectangleOutline"/>
+                </Button>
+                <Button Name="PolygonButton" Cursor="Hand" ToolTip="Add Polygon" Click="PolygonButton_Click">
+                    <materialDesign:PackIcon Kind="VectorPolygon"/>
+                </Button>
+                <Button Name="ImageButton" Cursor="Hand" ToolTip="Add Image" Click="ImageButton_Click">
+                    <materialDesign:PackIcon Kind="ImageOutline"/>
+                </Button>
+                <Separator/>
+            </ToolBar>
+        </ToolBarTray>
+        <Canvas x:Name="PaintingCanvas" Grid.Row="1" Background="WhiteSmoke" MouseLeftButtonUp="CanvasLeftMouse_Click" MouseRightButtonUp="OnCanvasMouseRightClick">
+        </Canvas>
     </Grid>
 </Window>
