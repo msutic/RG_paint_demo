@@ -21,20 +21,20 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="width:" Margin="0,10,5,10" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="22" Width="52"></TextBlock>
+        <TextBlock Text="width:" Margin="0,10,5,10" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial" FontSize="20" Height="22" Width="52"></TextBlock>
         <wpfx:IntegerUpDown Name="widthIn" Increment="5" FontSize="20" DisplayDefaultValueOnEmptyText="True" FontFamily="Arial" DefaultValue="50" Grid.Column="1"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="1" Text="height:" Margin="0,9,5,9" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="23" Width="60"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" Text="height:" Margin="0,9,5,9" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial" FontSize="20" Height="23" Width="60"></TextBlock>
         <wpfx:IntegerUpDown Name="heightIn" Increment="5" DefaultValue="50" FontFamily="Arial" FontSize="20" DisplayDefaultValueOnEmptyText="True" Grid.Row="1" Grid.Column="1"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="2" Text="fill color:" Margin="0,9,5,9" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="24" Width="73"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" Text="fill color:" Margin="0,9,5,9" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial" FontSize="20" Height="24" Width="73"></TextBlock>
         <wpfx:ColorPicker Name="fillColorIn" SelectedColor="Blue"  Grid.Column="1" Grid.Row="2"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="3" Text="border color:" Margin="0,9,5,9" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="23" Width="112"></TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3" Text="border color:" Margin="0,9,5,9" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial" FontSize="20" Height="23" Width="112"></TextBlock>
         <wpfx:ColorPicker Name="borderColorIn" SelectedColor="Black" Grid.Column="1" Grid.Row="3"/>
 
-        <TextBlock Grid.Column="0" Grid.Row="4" Text="border thickness:" Margin="0,10,5,10" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial" FontSize="20" Height="22" Width="152"></TextBlock>
-        <wpfx:IntegerUpDown Name="borderThicknessIn" DefaultValue="0" FontFamily="Arial" FontSize="20" DisplayDefaultValueOnEmptyText="True" Grid.Row="4" Grid.Column="1"/>
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="border thickness:" Margin="0,10,5,10" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial" FontSize="20" Height="22" Width="152"></TextBlock>
+        <wpfx:IntegerUpDown Name="borderThicknessIn" DefaultValue="1" FontFamily="Arial" FontSize="20" DisplayDefaultValueOnEmptyText="True" Grid.Row="4" Grid.Column="1"/>
 
         <Button x:Name="cancelButton" Cursor="Hand" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Cancel" Background="Gray" Grid.Row="5" Grid.Column="0" Click="CancelButton_Click"/>
         <Button x:Name="drawButton" Cursor="Hand" Width="100" FontFamily="Arial" FontSize="20" Margin="5" Content="Draw" Background="Gray" Grid.Row="5" Grid.Column="1" Click="DrawButton_Click"/>
