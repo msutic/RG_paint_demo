@@ -8,3 +8,9 @@ Apart from drawing, the application supports adding images.
 - [Visual Studio](https://visualstudio.microsoft.com/)  
 - [.NET Framework (min. 4.6.1)](https://dotnet.microsoft.com/download/dotnet-framework)  
 
+## Preview
+##### The application mainly consists of 2 main segments
+- Canvas (Space for element drawing)  
+- Toolbar (Shapes, Undo, Redo and Clear command)  
+
+![main window](doc/mainScreen.png)
